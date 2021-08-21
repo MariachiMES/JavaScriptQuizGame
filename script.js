@@ -14,6 +14,9 @@ var nextButtonEl = document.querySelector("#next-button");
 var proceedEl = document.querySelector(".proceed");
 var timeEl = document.querySelector(".time");
 var mainEl = document.getElementById("main");
+var nameEntryEl = document.querySelector("#name-input");
+var highScoreEl = document.querySelector("#hi-score-entry");
+var saveButtonEl = document.querySelector("#save");
 var score = 0;
 
 scoreEL.innerHTML = "SCORE: " + score;
@@ -113,6 +116,8 @@ var getQuestion = function () {
   choice2El.innerHTML = questionArray[questionArrayIndex].choice2;
   choice3El.innerHTML = questionArray[questionArrayIndex].choice3;
   choice4El.innerHTML = questionArray[questionArrayIndex].choice4;
+  saveButtonEl.setAttribute("style", "display: none");
+  nameEntryEl.setAttribute("style", "display: none");
 };
 var startQuiz = function () {
   if (questionArrayIndex > questionArray.length - 1) {
@@ -135,7 +140,6 @@ var displayQuestion = function () {
     nextButtonEl.innerHTML = "NEXT";
     questionArrayIndex++;
   } else {
-    console.log("incorrect");
     secondsLeft -= 5;
     this.innerHTML = "INCORRECT";
     this.setAttribute("style", "background-color: #FF0000");
@@ -158,7 +162,7 @@ var hiScoreScreen = function () {
   gamerHeaderEl.innerHTML = "HIGH SCORE";
   gamerHeaderEl.setAttribute(
     "style",
-    "font-size: 200px; text-shadow: 0px 5px 0px rgb(255, 0, 0, 0.9), 0px 10px 0px rgb(255, 0, 0, 0.8), 0px 17px 0px rgb(255, 0, 0, 0.7), 0px 25px 0px rgb(255, 0, 0, 0.6), 0px 35px 0px rgb(255, 0, 0, 0.5), 0px 50px 0px rgb(255, 0, 0, 0.4), 0px 70px 0px rgb(255, 0, 0, 0.3), 0px 100px 0px rgb(255, 0, 0, 0.2);"
+    "font-size: 200px; text-shadow: 0px 10px 0px rgb(0, 255, 0, 0.9),0px 20px 0px rgba(255, 0, 0, 0.8), 0px 35px 0px rgba(251, 255, 0, 0.7),0px 50px 0px rgba(0, 225, 255, 0.6), 0px 70px 0px rgba(67, 165, 18, 0.5),0px 100px 0px rgba(255, 0, 0, 0.4), 0px 135px 0px rgba(221, 255, 0, 0.3),0px 180px 0px rgba(255, 0, 255, 0.2"
   );
   questionNumEl.innerHTML = "";
   questionEl.innerHTML = "";
@@ -170,10 +174,11 @@ var hiScoreScreen = function () {
   answerButtonEl.innerHTML = "";
   buttonConEl.setAttribute("style", "display: none");
   timeEl.innerHTML = "";
-  mainEL.innerHTML = "";
-  proceedEl.setAttribute("style", "display:none");
   timeEl.innerHTML = "";
   nextButtonEl.setAttribute("style", "display: none");
+  highScoreEl.style.display === "content";
+  saveButtonEl.setAttribute("style", "display: content");
+  nameEntryEl.setAttribute("style", "display: content");
 };
 
 startQuiz();
