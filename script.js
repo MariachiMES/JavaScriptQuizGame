@@ -80,7 +80,7 @@ var questionArray = [
     questionNum: "QUESTION 2:",
     question: "WHAT IS 2 + 2?",
     choice1: "5",
-    choice2: "FIVE",
+    choice2: "22",
     choice3: "4",
     choice4: "0",
     correctAnswer: "4",
@@ -98,22 +98,22 @@ var questionArray = [
 
   {
     questionNum: "QUESTION 4:",
-    question: "WHAT DOES CSS STAND FOR?",
-    choice1: "CRIMINAL SUSPENSION SYSTEM",
-    choice2: "COMPUTER SYSTEM STYLES",
-    choice3: "CHROME STUFF STYLER",
-    choice4: "CASCADING STYLE SHEETS",
-    correctAnswer: "CASCADING STYLE SHEETS",
+    question: "WHAT IS THE CAPITAL OF TEXAS?",
+    choice1: "TEXAS CITY",
+    choice2: "SAN ANTONIO",
+    choice3: "AUSTIN",
+    choice4: "DON'T TREAD ON ME",
+    correctAnswer: "AUSTIN",
   },
 
   {
     questionNum: "QUESTION 5:",
-    question: "WHICH OF THESE IS NOT A JAVASCRIPT LIBRARY?",
-    choice1: "C#",
-    choice2: "P5",
-    choice3: "REACT",
-    choice4: "JQUERY",
-    correctAnswer: "C#",
+    question: "HOW COUNTRY BORDER THE USA TO THE SOUTH?",
+    choice1: "SOUTHERN AMERICA",
+    choice2: "CANADA",
+    choice3: "CHILE",
+    choice4: "MEXICO",
+    correctAnswer: "MEXICO",
   },
 ];
 var questionArrayIndex = 0;
@@ -127,9 +127,16 @@ var getQuestion = function () {
   choice4El.innerHTML = questionArray[questionArrayIndex].choice4;
 };
 var startQuiz = function () {
+  if (questionArrayIndex > questionArray.length - 1) {
+    this.innerHTML = "DONE";
+
+    visitHiScore();
+  }
   getQuestion();
 };
-
+var visitHiScore = function () {
+  window.location = "./hiscore.html";
+};
 var displayQuestion = function () {
   //Is the choice the correct answer
   if (this.innerHTML === questionArray[questionArrayIndex].correctAnswer) {
@@ -137,7 +144,6 @@ var displayQuestion = function () {
     this.setAttribute("style", "background-color: #00FF00");
     score += 10;
     scoreEL.innerHTML = "SCORE: " + score;
-    console.log("your score is " + score);
     nextButtonEl.innerHTML = "NEXT";
     questionArrayIndex++;
   } else {
@@ -146,8 +152,8 @@ var displayQuestion = function () {
     this.innerHTML = "INCORRECT";
     this.setAttribute("style", "background-color: #FF0000");
   }
-  //If not, time is deducted from the time for a wrong answer
 };
+//If not, time is deducted from the time for a wrong answer
 //deduct time from the timer for incorrect answers
 nextButtonEl.addEventListener("click", startQuiz);
 
