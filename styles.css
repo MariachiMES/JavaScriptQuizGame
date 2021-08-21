@@ -1,0 +1,151 @@
+body {
+  background-color: black;
+  color: white;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+head {
+  background-color: black;
+}
+.gameHeader {
+  margin-top: 50px;
+}
+
+.question-number {
+  margin-left: 200px;
+}
+
+.question {
+  margin-left: 200px;
+}
+h1 {
+  margin-top: 200px;
+  text-align: center;
+  text-shadow: 0px 0px 10px white, 0px 0px 15px lightgreen, 0px 0px 30px lime,
+    0px 0px 60px green, 0px 0px 120px darkgreen;
+}
+.btn {
+  display: block;
+  font-size: 30px;
+  border-radius: 30px;
+  color: white;
+  background-color: lime;
+  border: 0px;
+  margin-bottom: 10px;
+  width: 400px;
+}
+
+.btn:hover {
+  background-color: yellow;
+  box-shadow: 0px 0px 10px white, 0px 0px 15px lightcoral, 0px 0px 30px coral,
+    0px 0px 60px orangered, 0px 0px 120px red;
+  color: grey;
+}
+
+.center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.buttons {
+  height: 200px;
+  position: relative;
+  border: 1px solid lime;
+  border-radius: 20px;
+  padding: 30px;
+}
+.answerBtns {
+  background-color: cornflowerblue;
+  border: 0px;
+  border-radius: 30px;
+  font-size: 25px;
+  width: 300px;
+  height: 50px;
+  margin-bottom: 15px;
+  margin-right: 10px;
+  margin-left: 15px;
+}
+a:link {
+  color: white;
+  text-decoration: none;
+}
+
+a:visited {
+  color: white;
+  text-decoration: none;
+}
+.button-container {
+  display: block;
+  position: relative;
+  height: 100px;
+  width: 800px;
+  margin: 0px;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, 50%);
+}
+
+.answerBtns:hover {
+  background-color: hotpink;
+  box-shadow: 0px 0px 10px white, 0px 0px 15px lightcoral, 0px 0px 30px coral,
+    0px 0px 60px orangered, 0px 0px 120px red;
+}
+.title,
+.questioners {
+  box-sizing: border-box;
+}
+#high-scores {
+  text-align: center;
+  text-shadow: 0px 5px 0px rgb(0, 255, 0, 0.9),
+    0px 10px 0px rgba(255, 0, 0, 0.8), 0px 17px 0px rgba(251, 255, 0, 0.7),
+    0px 25px 0px rgba(0, 225, 255, 0.6), 0px 35px 0px rgba(67, 165, 18, 0.5),
+    0px 50px 0px rgba(255, 0, 0, 0.4), 0px 70px 0px rgba(221, 255, 0, 0.3),
+    0px 100px 0px rgba(255, 0, 255, 0.2);
+  font-size: 100px;
+  font-weight: bolder;
+}
+
+#outside-border {
+  margin: 20px;
+}
+#first-child-border {
+  margin: 30px;
+}
+#second-child-border {
+}
+
+#last-child-border {
+  text-shadow: 0px 0px 10px rgb(0, 255, 0, 0.9),
+    0px 0px 20px rgb(0, 255, 0, 0.8), 0px 0px 30px rgb(0, 255, 0, 0.7);
+}
+#name {
+  font-size: 50px;
+  text-align: left;
+  margin-top: 0px;
+  margin-left: 5px;
+  text-shadow: 0px 0px 10px rgb(0, 255, 0, 0.9),
+    0px 0px 20px rgb(0, 255, 0, 0.8), 0px 0px 30px rgb(0, 255, 0, 0.7);
+}
+#score {
+  font-size: 50px;
+  text-align: right;
+  margin-top: 0px;
+  margin-right: 5px;
+  text-shadow: 0px 0px 10px rgb(0, 255, 0, 0.9),
+    0px 0px 20px rgb(0, 255, 0, 0.8), 0px 0px 30px rgb(0, 255, 0, 0.7);
+}
+.time {
+  text-align: right;
+  margin-right: 200px;
+}
+
+#score {
+  text-align: right;
+  margin-right: 200px;
+  margin-top: 100px;
+  float: right;
+  font-size: 35px;
+  font-weight: bolder;
+}
