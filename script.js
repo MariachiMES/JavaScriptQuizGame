@@ -32,6 +32,7 @@ function setTime() {
     }
   }, 1000);
 }
+var hiScore = localStorage.getItem("fasdf");
 
 var gameOver = function () {
   gamerHeaderEl.innerHTML = "YOU LOSE! GAME OVER";
@@ -151,6 +152,8 @@ var displayQuestion = function () {
     secondsLeft -= 5;
     this.innerHTML = "INCORRECT";
     this.setAttribute("style", "background-color: #FF0000");
+    nextButtonEl.innerHTML = "NEXT";
+    questionArrayIndex++;
   }
 };
 //If not, time is deducted from the time for a wrong answer
