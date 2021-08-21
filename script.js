@@ -12,11 +12,9 @@ var buttonConEl = document.querySelector(".button-container");
 var nextBtnEl = document.querySelector("#next-button");
 var nextButtonEl = document.querySelector("#next-button");
 var proceedEl = document.querySelector(".proceed");
-
 var timeEl = document.querySelector(".time");
 var mainEl = document.getElementById("main");
 var score = 0;
-console.log("your score is " + score);
 
 scoreEL.innerHTML = "SCORE: " + score;
 //Start a Timer
@@ -25,7 +23,10 @@ function setTime() {
   var timerInterval = setInterval(function () {
     secondsLeft--;
     timeEl.textContent = secondsLeft + " seconds until game over";
-
+    if (questionArrayIndex > questionArray.length - 1) {
+      clearInterval(timerInterval);
+      timeEl.textContent = "";
+    }
     if (secondsLeft <= 0) {
       clearInterval(timerInterval);
       gameOver();
@@ -53,19 +54,9 @@ var gameOver = function () {
   mainEL.innerHTML = "";
   proceedEl.setAttribute("style", "display:none");
 };
-
 // Function to create and append colorsplosion image
-function gameOver() {
-  timeEl.textContent = " ";
-  var imgEl = document.createElement("img");
-  imgEl.setAttribute("src", "images/image_1.jpg");
-  mainEl.appendChild(imgEl);
-}
-
 setTime();
-
 //create objects for the four questions
-
 var questionArray = [
   {
     questionNum: "QUESTION 1:",
@@ -76,7 +67,6 @@ var questionArray = [
     choice4: "Captin Coding",
     correctAnswer: "Jeremy",
   },
-
   {
     questionNum: "QUESTION 2:",
     question: "WHAT IS 2 + 2?",
@@ -86,7 +76,6 @@ var questionArray = [
     choice4: "0",
     correctAnswer: "4",
   },
-
   {
     questionNum: "QUESTION 3:",
     question: "WHAT IS THE UTSA MASCOT?",
@@ -96,7 +85,6 @@ var questionArray = [
     choice4: "BEARKAT",
     correctAnswer: "ROADRUNNER",
   },
-
   {
     questionNum: "QUESTION 4:",
     question: "WHAT IS THE CAPITAL OF TEXAS?",
@@ -106,7 +94,6 @@ var questionArray = [
     choice4: "DON'T TREAD ON ME",
     correctAnswer: "AUSTIN",
   },
-
   {
     questionNum: "QUESTION 5:",
     question: "HOW COUNTRY BORDER THE USA TO THE SOUTH?",
@@ -129,9 +116,8 @@ var getQuestion = function () {
 };
 var startQuiz = function () {
   if (questionArrayIndex > questionArray.length - 1) {
-    this.innerHTML = "DONE";
-
-    visitHiScore();
+    this.innerHTML = "";
+    hiScoreScreen();
   }
   getQuestion();
 };
@@ -144,6 +130,7 @@ var displayQuestion = function () {
     this.innerHTML = "CORRECT";
     this.setAttribute("style", "background-color: #00FF00");
     score += 10;
+    localStorage.setItem("hiScore", hiScore);
     scoreEL.innerHTML = "SCORE: " + score;
     nextButtonEl.innerHTML = "NEXT";
     questionArrayIndex++;
@@ -153,22 +140,40 @@ var displayQuestion = function () {
     this.innerHTML = "INCORRECT";
     this.setAttribute("style", "background-color: #FF0000");
     nextButtonEl.innerHTML = "NEXT";
-    questionArrayIndex++;
   }
 };
 //If not, time is deducted from the time for a wrong answer
 //deduct time from the timer for incorrect answers
 nextButtonEl.addEventListener("click", startQuiz);
-
 //When the user clicks on an answer choice
 choice1El.addEventListener("click", displayQuestion);
 choice2El.addEventListener("click", displayQuestion);
 choice3El.addEventListener("click", displayQuestion);
 choice4El.addEventListener("click", displayQuestion);
-
 //chage the color of the
-
 //go to next question
 //go to high score screen
+
+var hiScoreScreen = function () {
+  gamerHeaderEl.innerHTML = "HIGH SCORE";
+  gamerHeaderEl.setAttribute(
+    "style",
+    "font-size: 200px; text-shadow: 0px 5px 0px rgb(255, 0, 0, 0.9), 0px 10px 0px rgb(255, 0, 0, 0.8), 0px 17px 0px rgb(255, 0, 0, 0.7), 0px 25px 0px rgb(255, 0, 0, 0.6), 0px 35px 0px rgb(255, 0, 0, 0.5), 0px 50px 0px rgb(255, 0, 0, 0.4), 0px 70px 0px rgb(255, 0, 0, 0.3), 0px 100px 0px rgb(255, 0, 0, 0.2);"
+  );
+  questionNumEl.innerHTML = "";
+  questionEl.innerHTML = "";
+  choice1El.innerHTML = "";
+  choice2El.innerHTML = "";
+  choice3El.innerHTML = "";
+  choice4El.innerHTML = "";
+  scoreEL.innerHTML = "";
+  answerButtonEl.innerHTML = "";
+  buttonConEl.setAttribute("style", "display: none");
+  timeEl.innerHTML = "";
+  mainEL.innerHTML = "";
+  proceedEl.setAttribute("style", "display:none");
+  timeEl.innerHTML = "";
+  nextButtonEl.setAttribute("style", "display: none");
+};
 
 startQuiz();
