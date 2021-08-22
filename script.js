@@ -193,6 +193,8 @@ var writeHighScore = function (event) {
   event.preventDefault();
   playerHighScore = $('input[name="first-name-player"]').val();
   $('input[name="name"]').val("");
+  saveButtonEl.setAttribute("style", "display: none");
+  nameEntryEl.setAttribute("style", "display: none");
   highScoreEl.append(score);
 
   // if there's nothing in the form entered, don't print to the page
