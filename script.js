@@ -15,7 +15,7 @@ var proceedEl = document.querySelector(".proceed");
 var timeEl = document.querySelector(".time");
 var mainEl = document.getElementById("main");
 var nameEntryEl = document.querySelector("#name-input");
-var highScoreEl = document.querySelector("#hi-score-entry");
+var highScoreEl = document.querySelector("ul");
 var saveButtonEl = document.querySelector("#save");
 var score = 0;
 
@@ -180,5 +180,12 @@ var hiScoreScreen = function () {
   saveButtonEl.setAttribute("style", "display: content");
   nameEntryEl.setAttribute("style", "display: content");
 };
+
+var writeHighScore = function (event) {
+  console.log("telosico");
+  event.preventDefault();
+  highScoreEl.append("<li>" + score + "</li>");
+};
+saveButtonEl.addEventListener("click", writeHighScore);
 
 startQuiz();
