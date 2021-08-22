@@ -181,10 +181,27 @@ var hiScoreScreen = function () {
   nameEntryEl.setAttribute("style", "display: content");
 };
 
+var playerHighScore;
+
+function handleFormSubmit(event) {
+  event.preventDefault();
+
+  // select form element by its `name` attribute and get its value
+}
 var writeHighScore = function (event) {
   console.log("telosico");
   event.preventDefault();
-  highScoreEl.append("<li>" + score + "</li>");
+  playerHighScore = $('input[name="first-name-player"]').val();
+  $('input[name="name"]').val("");
+  highScoreEl.append(score);
+
+  // if there's nothing in the form entered, don't print to the page
+  if (!playerHighScore) {
+    console.log("HEY!");
+    return;
+  }
+
+  // clear the form input element
 };
 saveButtonEl.addEventListener("click", writeHighScore);
 
